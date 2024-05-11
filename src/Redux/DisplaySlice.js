@@ -26,10 +26,16 @@ const displaySlice = createSlice({
       state.srchword=action.payload;
      
       
+    },
+
+    reduceQty(state,action)
+    {
+        // console.log("reduceQty called");
+      state.items[action.payload].qty--;
     }
      
   },
 });
 
-export const {searchword,fetchData}=displaySlice.actions
+export const {searchword,fetchData,reduceQty}=displaySlice.actions
 export default displaySlice.reducer;

@@ -9,8 +9,8 @@ const Navbar = () => {
   let dispatch=useDispatch()
   return (
     <div>
-     <nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
+     <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark bg-body-tertiary">
+     <div className="container-fluid">
     <Link className="navbar-brand" to="#">Navbar</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
@@ -32,7 +32,7 @@ const Navbar = () => {
         <li className="nav-item ">
           <Link className="nav-link active" to="#">Grocery Items</Link>
         </li>
-        <li className="nav-item ">
+        <li className="nav-item mx-6">
           <Link className="nav-link active" to="/Cart">Your Cart</Link>
         </li>
          

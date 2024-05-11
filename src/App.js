@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Smartphones from './components/Smartphones';
+import Slider from './components/Slider';
 
 
 function App() {
@@ -13,7 +14,11 @@ function App() {
     <div  >
       <Router>
       <Navbar></Navbar>
+
+
+      
        <Routes>
+       
        <Route path="/Home" element={<Home></Home>}>
       
     
