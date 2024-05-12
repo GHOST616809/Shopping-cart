@@ -1,6 +1,9 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Slider = () => {
+
+  const popItem=useSelector(state=>state.cart.popItem)
   return (
     <div>
         <div id="carouselExample" className="carousel slide my-5">
