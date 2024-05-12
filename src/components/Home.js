@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addToCart } from '../Redux/Slice1'
 import { fetchData, reduceQty } from '../Redux/DisplaySlice'
@@ -6,11 +6,12 @@ import Slider from './Slider'
 
 
 
+
 const Home = () => {
 
     const dispatch=useDispatch();
     // let wrd=useSelector(state=>state.srchword)
-    
+    const ref=useRef(null);
     
    
   const URL="https://dummyjson.com/products"
@@ -32,6 +33,7 @@ const Home = () => {
     // , [wrd])
 
    const [flag,setFlag]=useState(0);
+   const [modal,setModal]=useState({})
   const getData=async ()=>{
     // console.log("get Data called")
     let data=await fetch(`${URL}`);
@@ -58,16 +60,54 @@ const Home = () => {
     //  items[idx]=newCartitem;
     dispatch(reduceQty(idx))
    }
+
+   const displayModal=(item)=>{
+    
+        setModal(item)
+        ref.current.click();
+
+
+
+
+   }
    
   
     return (
       <>
+      <button ref={ref} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+ 
+<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div className="modal-dialog">
+    <div className="modal-content">
+      <div className="modal-header">
+        <h1 className="modal-title fs-5" id="exampleModalLabel">{modal.title}</h1>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div className="card">
+        <div className="card-body">
+      <div className="modal-body">
+        <div className='container'><img src={`${modal.thumbnail}`} className="img-fluid"></img></div>
+        {modal.description}
+      </div>
+      </div>
+      </div>
+      <div className="modal-footer">
+        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        {/* <button type="button" className="btn btn-primary">Save changes</button> */}
+      </div>
+    </div>
+  </div>
+</div>
+    
       <div className="my 5"><Slider></Slider></div>
 
     <div className="container my-5">
      
          <div className="row">
-        {items!==undefined&&items.map((item,idx)=>{console.log(item.images[0]);  return(<div className="col-md-4 "><div className="card"><img src={`${item.images[0]}`}></img><div className="card-body"><h4>{item.title}</h4><br></br><h3>Item Description</h3>{item.description?item.description:404}<br></br><h3>{item.qty?<h4>qty:{item.qty}</h4>:<h4>Out of Stock</h4>}</h3><br></br><button className="btn btn-primary" onClick={(e)=>{handleAddToCart(idx)}}>Add To Cart</button></div></div></div>
+        {items!==undefined&&items.map((item,idx)=>{console.log(item.images[0]);  return(<div className="col-md-4 "><div className="card"><img src={`${item.images[0]}`}></img><div className="card-body"><h4>{item.title}</h4><br></br><h3>Item Description</h3>{item.description?item.description:404}<br></br><h3>{item.qty?<h4>qty:{item.qty}</h4>:<h4>Out of Stock</h4>}</h3><br></br><button className="btn btn-primary" onClick={(e)=>{handleAddToCart(idx)}}>Add To Cart</button><button className="btn btn-primary mx-4" onClick={()=>{displayModal(item)}}>Details</button></div></div></div>
         );
     
     

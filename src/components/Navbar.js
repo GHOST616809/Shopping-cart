@@ -11,7 +11,7 @@ const Navbar = () => {
     <div>
      <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark bg-body-tertiary">
      <div className="container-fluid">
-    <Link className="navbar-brand" to="#">Navbar</Link>
+    <Link className="navbar-brand" to="#">Kuhl Store</Link>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +21,7 @@ const Navbar = () => {
           <Link className="nav-link active" aria-current="page" to="/Home">Home</Link>
         </li>
         <li className="nav-item mx-2">
-          <Link className="nav-link active" to="/Smartphones">Smartphones</Link>
+          <Link className="nav-link active" to="/PopItems">Popular Items</Link>
         </li>
         <li className="nav-item mx-2">
           <Link className="nav-link active" to="#">Electronics</Link>

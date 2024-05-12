@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 // Define initial state
 const initialState = {
   cart: [],
-  Balance:0
+  Balance:0,
+  popItems:[]
   
 };
 
@@ -45,6 +46,8 @@ const counterSlice = createSlice({
             console.log("test",state.cart[index]);
 
         }
+        state.popItems=state.cart;
+        state.popItems.sort((a,b)=>b.cartqty-a.cartqty);
         
         
       
