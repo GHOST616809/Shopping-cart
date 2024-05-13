@@ -1,10 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { searchword } from '../Redux/DisplaySlice';
+import { addLocation, searchword } from '../Redux/DisplaySlice';
+
 
 
 const Navbar = () => {
+
+  
+  
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [error, setError] = useState(null);
+  const [location,setLocationData]=useState({})
+
+  const getLocation = async () => {
+    try {
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+      });
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+      const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error('Failed to fetch location data');
+        }
+        const data = await response.json();
+        setLocationData(data);
+        dispatch(addLocation(data.address.county));
+
+
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  useEffect(()=>{
+    getLocation();},[])
+  
+  
+  
+  
   let wrd="";
   let dispatch=useDispatch()
   return (
@@ -35,7 +71,10 @@ const Navbar = () => {
         <li className="nav-item mx-6">
           <Link className="nav-link active" to="/Cart">Your Cart</Link>
         </li>
-         
+        <li className="nav-item mx-2 nav-link active">
+           <img src="https://cdn.pixabay.com/photo/2020/06/30/10/22/icon-5355889_1280.png" style={{height:"25px",width:"25px"}} alt="location"/>{`${location.name} ${location.address!==undefined?location.address.county:""}`} 
+        </li>
+        
          
       </ul>
       <form className="d-flex" role="search">
@@ -45,6 +84,7 @@ const Navbar = () => {
     </div>
   </div>
 </nav>  
+ 
 
     </div>
   )

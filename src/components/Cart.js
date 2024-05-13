@@ -7,8 +7,10 @@ const Cart = () => {
 const item= useSelector(state=>state.cart.cart)
  const x=useSelector(state=>state.cart.Balance)
 const dispatch=useDispatch();
+const location=useSelector(state=>state.display.location)
+const loc=location.toLowerCase();
   return (
-    <div className='container mt-6'>
+    <div className='container mt-6 '>
         <table class="table">
   <thead>
     <tr>
@@ -27,6 +29,9 @@ const dispatch=useDispatch();
     <th>Total Balance</th><td>{x}</td><td></td>
       </tbody>
 </table>
+<div className="text-right">
+<button className="btn-btn-primary" disabled={loc==="delhi"||loc==="lucknow"||loc==="ayodhya"?0:1}>Proceed to payment</button>
+</div>
 </div>
      )
      

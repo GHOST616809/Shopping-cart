@@ -3,7 +3,8 @@ let initialState={
     items:[],
     srchword:"",
     modal:{},
-    showModal:0
+    location:""
+     
 }
 
 
@@ -46,10 +47,14 @@ const displaySlice = createSlice({
        
       state.showModal=0;
     },
+    addLocation(state,action)
+    {
+      state.location=action.payload;
+    }
 
      
   },
 });
 
-export const {searchword,fetchData,reduceQty,addToModal}=displaySlice.actions
+export const {searchword,fetchData,reduceQty,addToModal,addLocation}=displaySlice.actions
 export default displaySlice.reducer;

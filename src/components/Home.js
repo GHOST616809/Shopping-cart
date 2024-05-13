@@ -74,8 +74,11 @@ const Home = () => {
   
     return (
       <>
+
+
+   
       <button ref={ref} type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
+  
 </button>
 
  
@@ -103,6 +106,26 @@ const Home = () => {
 </div>
     
       <div className="my 5"><Slider></Slider></div>
+
+      <div className="row my-3 ">
+      <div className="col-md-4 card">
+        <img src="https://picsum.photos/200/300" style={{width:"100%",height:"70%"}}></img>
+        
+        <div className="card-body lead">Revamp your Home with the new decors !!!Fresh of the Boat</div>
+      </div>
+
+      <div className="col-md-4 card">
+        <img src="https://picsum.photos/200/300" style={{width:"100%",height:"70%"}}></img>
+        
+        <div className="card-body lead">Boat Coming Your Way!!!</div>
+      </div>
+
+      <div className="col-md-4 card">
+        <img src="https://picsum.photos/200/300" style={{width:"100%",height:"70%"}}></img>
+        
+        <div className="card-body lead">Grab the latest fashionwears from the top brands</div>
+      </div>
+      </div>
 
     <div className="container my-5">
      
