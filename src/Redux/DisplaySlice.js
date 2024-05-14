@@ -3,7 +3,8 @@ let initialState={
     items:[],
     srchword:"",
     modal:{},
-    location:""
+    location:"",
+    smartphones:[]
      
 }
 
@@ -18,7 +19,8 @@ const displaySlice = createSlice({
     {
         console.log("fetchData called");
       state.items=action.payload;
-      state.srchword="s"
+      // state.srchword="s"
+      state.smartphones=state.items.filter(item=>item.category=="smartphones");
       console.log("items =",state.items);
       
     },    
