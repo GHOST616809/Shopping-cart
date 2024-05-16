@@ -13,6 +13,9 @@ import  ReactSimpleChatbot   from 'react-simple-chatbot';
 import { ThemeProvider } from 'styled-components';
 import { Component } from 'react';
 import ChatbotSmartphone from './components/ChatbotSmartphone';
+import Fashion from './components/Fashion';
+import Phones from './components/Phones';
+import Grocery from './components/Grocery';
 
 
  
@@ -127,8 +130,17 @@ const config = {
     
     
     </Route>
+    
+    <Route path="/Fashion" element={<Fashion></Fashion>}>
+    
+    
+    </Route>
 
-    <Route path="/Smartphones" element={<Smartphones></Smartphones>}>
+    <Route path="/Smartphones" element={<Phones></Phones>}>
+      
+    
+      </Route>
+      <Route path="/Grocery" element={<Grocery></Grocery>}>
       
     
       </Route>

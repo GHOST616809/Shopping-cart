@@ -4,7 +4,9 @@ let initialState={
     srchword:"",
     modal:{},
     location:"",
-    smartphones:[]
+    smartphones:[],
+    fashion:[],
+    grocery:[]
      
 }
 
@@ -20,7 +22,9 @@ const displaySlice = createSlice({
         console.log("fetchData called");
       state.items=action.payload;
       // state.srchword="s"
-      state.smartphones=state.items.filter(item=>item.category=="smartphones");
+      state.smartphones=state.items.filter(item=>(item.category=="smartphones"||item.category==="laptops"));
+      state.fashion=state.items.filter((item)=>(item.category=="fragrances"||item.category==="skincare"));
+      state.grocery=state.items.filter((item)=>(item.category=="groceries"));
       console.log("items =",state.items);
       
     },    

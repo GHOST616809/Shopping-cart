@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   cart: [],
   Balance:0,
-  popItems:[]
+  popItems:[],
+   
   
 };
 

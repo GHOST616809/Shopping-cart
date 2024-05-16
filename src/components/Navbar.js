@@ -60,13 +60,13 @@ const Navbar = () => {
           <Link className="nav-link active" to="/PopItems">Popular Items</Link>
         </li>
         <li className="nav-item mx-2">
-          <Link className="nav-link active" to="#">Electronics</Link>
+          <Link className="nav-link active" to="/Smartphones">Electronics</Link>
         </li>
         <li className="nav-item mx-2">
-          <Link className="nav-link active" to="#">Fashion and Apparels</Link>
+          <Link className="nav-link active" to="/Fashion">Fashion and Apparels</Link>
         </li>
         <li className="nav-item ">
-          <Link className="nav-link active" to="#">Grocery Items</Link>
+          <Link className="nav-link active" to="/Grocery">Grocery Items</Link>
         </li>
         <li className="nav-item mx-6">
           <Link className="nav-link active" to="/Cart">Your Cart</Link>

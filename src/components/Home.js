@@ -110,7 +110,8 @@ const Home = () => {
     
       <div className="my 5"><Slider></Slider></div>
 
-      <div className="row my-3 ">
+        
+      {/* <div className="row my-3 ">
       <div className="col-md-4 card">
         <img src="https://picsum.photos/200/300" style={{width:"100%",height:"70%"}}></img>
         
@@ -128,7 +129,7 @@ const Home = () => {
         
         <div className="card-body lead">Grab the latest fashionwears from the top brands</div>
       </div>
-      </div>
+      </div> */}
 
     <div className="container my-5">
      
