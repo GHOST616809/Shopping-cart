@@ -29,7 +29,7 @@ const loc=location.toLowerCase();
     <th>Total Balance</th><td>{x}</td><td></td>
       </tbody>
 </table>
-{loc!=="delhi"&&<p>We have not reached this place yet Sorry!!</p>}
+{(loc!=="delhi"&&loc!=="faizabad"&&loc!=="lucknow")&&<p>We have not reached this place yet Sorry!!</p>}
 <div className="text-right">
 <button className="btn-btn-primary" disabled={loc==="delhi"||loc==="lucknow"||loc==="ayodhya"||loc==="faizabad"?0:1}>Proceed to payment</button>
 </div>
